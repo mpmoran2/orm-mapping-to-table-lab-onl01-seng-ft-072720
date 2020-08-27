@@ -26,6 +26,8 @@ class Student
   end 
  
   def save
+    sql <<-SQL
+      INSERT INTO S
   end 
  
   def self.create 
