@@ -15,19 +15,27 @@ class Student
       name TEXT,
       grade TEXT)
       SQL
+      
       DB[:conn].execute(sql)
   end 
  
   def self.drop_table
     sql <<-SQL
-      INSERT INTO students (name, grade)
-      VALUES (?, ?)
+      DROP TABLE students
       SQL
+      
+      DB[:conn].execute(sql)
   end 
  
   def save
     sql <<-SQL
-      INSERT INTO S
+      INSERT INTO students (name, grade)
+      VALUES (?, ?)
+      SQL
+      
+      DB[:conn].execute(sql)
+      
+      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
   end 
  
   def self.create 
