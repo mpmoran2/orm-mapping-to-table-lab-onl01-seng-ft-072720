@@ -5,6 +5,9 @@ class Student
  def initialize(name, grade, id=nil)
  end 
  
- def self.create
+ def self.create_table
+ end 
+ 
+ def self.
   
 end
