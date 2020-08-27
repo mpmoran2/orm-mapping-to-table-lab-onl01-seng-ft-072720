@@ -1,14 +1,33 @@
 class Student
 
- attr_accessor :name, :grade, :include
+  attr_accessor :name, :grade, :include
  
- def initialize(name, grade, id=nil)
- end 
+  def initialize(name, grade, id=nil)
+    @name = name
+    @grade = grade
+    @id = id
+  end 
  
- def self.create_table
- end 
+  def self.create_table
+    sql <<-SQL
+      CREATE TABLE IF NOT EXIST students (
+      id INTEGER PRIMARY KEY,
+      name TEXT,
+      grade TEXT)
+      SQL
+      DB[:conn].execute(sql)
+  end 
  
- def self.drop_table
- end 
+  def self.drop_table
+    sql <<-SQL
+      INSERT INTO students (name, grade)
+      VALUES (?, ?)
+  end 
+ 
+  def save
+  end 
+ 
+  def.create 
+  end
   
 end
