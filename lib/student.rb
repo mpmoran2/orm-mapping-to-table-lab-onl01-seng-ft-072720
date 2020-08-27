@@ -8,6 +8,7 @@ class Student
  def self.create_table
  end 
  
- def self.
+ def self..drop_table
+ end 
   
 end
